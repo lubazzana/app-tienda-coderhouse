@@ -2,13 +2,13 @@ import { StyleSheet } from "react-native";
 import { colors } from "../../constants/themes/colors";
 
 export const styles = StyleSheet.create({
-    container:{
+    container: {
         flex: 1,
         borderRadius: 10,
         margin: 20,
         height: 180,
     },
-    containerTouchable:{
+    containerTouchable: {
         flex: 1,
         borderRadius: 10,
         shadowColor: colors.shadow,
@@ -24,12 +24,12 @@ export const styles = StyleSheet.create({
         padding: 10,
         backgroundColor: colors.white,
     },
-    name:{
+    name: {
         fontSize: 14,
         fontFamily: 'SourceSansPro-Bold',
     },
     details: {
         fontFamily: 'SourceSansPro-Regular',
         fontSize: 12,
-    }
+    },
 });
