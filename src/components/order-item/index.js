@@ -8,22 +8,26 @@ import { styles } from "./styles";
 const formatDate = (time) => {
     const date = new Date(time);
     return date.toLocaleDateString();
-}
+};
 
 const OrderItem = ({ item, onDelete }) => {
     return (
         <View style={styles.container}>
-            <View style={styles.detail}>
-                <Text style={styles.date}>{formatDate(item.date)}</Text>
-                <Text style={styles.total}>${item.total}</Text>
+            <View style={styles.headerContainer}>
+                <Text style={styles.header}>{formatDate(item.date)}</Text>
             </View>
-            <TouchableOpacity onPress={() => onDelete(item.id)}>
-                <IonicIcons
-                    name="trash" 
-                    size={24} 
-                    color={colors.primary}
-                />
-            </TouchableOpacity>
+            <View style={styles.containerDetail}>
+                <View style={styles.detail}>
+                    <Text style={styles.detailTotal}>${item.total}</Text>
+                </View>
+                <TouchableOpacity onPress={() => onDelete(item.id)}>
+                    <IonicIcons
+                        name="trash" 
+                        size={24} 
+                        color={colors.primary}
+                    />
+                </TouchableOpacity>
+            </View>
         </View>
     )
 }
