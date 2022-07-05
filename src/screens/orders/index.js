@@ -1,17 +1,17 @@
-import { FlatList, Text, View } from "react-native";
+import { FlatList, SafeAreaView, View } from "react-native";
 import React, { useEffect } from "react";
+import { deleteOrder, getOrders } from "../../store/actions/order.action";
 import { useDispatch, useSelector } from "react-redux";
 
 import { OrderItem } from "../../components/index";
-import { getOrders } from "../../store/actions/order.action";
 import { styles } from "./styles";
 
 const OrdersScreen = () => {
     const dispatch = useDispatch();
     const orders = useSelector((state) => state.order.items);
     
-    const onDeleteOrder = () => {
-        console.log('delete order');
+    const onDeleteOrder = (id) => {
+        dispatch(deleteOrder(id));
     };
 
     const renderItem = ({ item }) => (
@@ -23,15 +23,17 @@ const OrdersScreen = () => {
     }, []);
     
     return (
-        <View style={styles.container}>
-            <View style={styles.orderList}>
-                <FlatList
-                        data={orders}
-                        renderItem={renderItem}
-                        keyExtractor={(item) => item.id}
-                    />
+        <SafeAreaView style={{ flex: 1 }}>
+            <View style={styles.container}>
+                <View style={styles.orderList}>
+                    <FlatList
+                            data={orders}
+                            renderItem={renderItem}
+                            keyExtractor={(item) => item.id}
+                        />
+                </View>
             </View>
-        </View>
+        </SafeAreaView>
     );
 };
 

@@ -1,7 +1,6 @@
 import { orderTypes } from "../types/order.types";
-import { orders } from "../../data/orders";
 
-const { GET_ORDERS } = orderTypes;
+const { GET_ORDERS, DELETE_ORDER } = orderTypes;
 
 const initialState = {
     items: [],
@@ -14,6 +13,13 @@ const orderReducer = (state= initialState, action) => {
                 ...state,
                 items: action.payload,
             };
+
+        case DELETE_ORDER:
+            return {
+                ...state,
+                items: state.items.filter(item => item.id !== action.orderId),
+            };
+
         default:
             return state;
     }

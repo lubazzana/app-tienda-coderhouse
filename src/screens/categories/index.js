@@ -1,4 +1,4 @@
-import { FlatList, View } from "react-native";
+import { FlatList, SafeAreaView, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
 import { CategoryItem } from "../../components/index";
@@ -24,13 +24,15 @@ const CategoriesScreen = ({ navigation }) => {
     );
 
     return (
-        <View style={styles.container}>
-            <FlatList
-                data={categories}
-                renderItem={renderItem}
-                keyExtractor={(item) => item.id}
-            />
-        </View>
+        <SafeAreaView style={{ flex: 1 }}>
+            <View style={styles.container}>
+                <FlatList
+                    data={categories}
+                    renderItem={renderItem}
+                    keyExtractor={(item) => item.id}
+                />
+            </View>
+        </SafeAreaView>
     );
 }
 

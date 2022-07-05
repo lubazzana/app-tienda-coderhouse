@@ -3,12 +3,12 @@ import { colors } from "../../constants/themes/colors";
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: colors.white,
+        marginTop: 5,
     },
-    orderList: {
-        flex: 1,
-        marginHorizontal: 20,
-    }
-
+    label: {
+        fontSize: 14,
+        fontFamily: "SourceSansPro-Bold",
+        marginVertical: 5,
+        color: colors.text,
+    },
 });
